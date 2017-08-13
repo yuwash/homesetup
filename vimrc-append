@@ -1,0 +1,17 @@
+if !has('gui_running')
+  set t_Co=256
+endif
+
+set incsearch
+
+colorscheme koehler
+"color summerfruit256
+
+set spell spelllang=en_us,de_de
+
+" airline configuration
+set laststatus=2
+let g:airline_theme = 'base16_default'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif

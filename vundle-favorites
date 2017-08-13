@@ -1,0 +1,16 @@
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" Syntax checking hacks for vim
+Plugin 'scrooloose/syntastic'
+" Lean & mean status/tabline for vim that's light as air.
+Plugin 'vim-airline/vim-airline'
+" This is the official theme repository for vim-airline.
+Plugin 'vim-airline/vim-airline-themes'
+" Vim two-pane outliner
+Plugin 'vim-scripts/VOoM'
+" extended % matching for HTML, LaTeX, and many other languages
+Plugin 'vim-scripts/matchit.zip'
+" Weapon to fight against conflicts in Vim.
+Plugin 'rhysd/conflict-marker.vim'
+" :cherry_blossom: A command-line fuzzy finder written in Go
+Plugin 'junegunn/fzf'
