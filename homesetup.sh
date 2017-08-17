@@ -1,19 +1,26 @@
 #! /usr/bin/env bash
-xargs sudo apt-get install < apt-favorites \
-&& sudo adduser $USER davfs2 \
-&& newgrp davfs2 \
-&& (
-[[ -z "$BASH_IT" ]] \
-	&& BASH_IT="$HOME/.bash_it" \
+# sudo apt-get install `cat apt-favorites` \
+true \
+&& if ! (groups | grep -q davfs2)
+then
+	sudo adduser "$USER" davfs2 \
+	&& newgrp davfs2
+fi \
+&& if [[ -z "$BASH_IT" ]]
+then
+	BASH_IT="$HOME/.bash_it" \
 	&& git clone https://github.com/yuwash/bash-it.git "$BASH_IT" \
 	&& "$BASH_IT"/install.sh
-) \
+fi \
 && source ~/.bashrc \
-&& (
-[[ -d /media/$USER ]] \
-	|| sudo mkdir /media/$USER \
+&& ( bash-it enable plugin davencmount  # returns 0 even if already enabled
+) \
+&& if ! [[ -d /media/$USER ]]
+then
+	sudo mkdir /media/$USER \
 	&& sudo chown -R "$USER" /media/$USER \
-	&& sudo chgrp -R "$USER" /media/$USER ) \
+	&& sudo chgrp -R "$USER" /media/$USER
+fi \
 && while read entry
 do
 	line="`envsubst <<<"$entry"`"
