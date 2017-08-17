@@ -1,3 +1,5 @@
+gettext-base
+git
 davfs2
 curlftpfs
 encfs
