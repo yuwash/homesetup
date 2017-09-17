@@ -6,7 +6,11 @@
 		+'%s/^XKBOPTIONS.*$/XKBOPTIONS="grp:caps_toggle,grp_led:scroll"' \
 ) \
 && udevadm trigger --subsystem-match=input --action=change \
-&& sudo apt-get install `cat apt-favorites` \
+&& sudo apt-get install `cat \
+	apt-favorites \
+	# items below ignored \
+	apt-extras \
+	` \
 && if ! (groups | grep -q davfs2)
 then
 	sudo adduser "$USER" davfs2
