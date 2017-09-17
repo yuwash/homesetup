@@ -9,8 +9,9 @@
 && sudo apt-get install `cat apt-favorites` \
 && if ! (groups | grep -q davfs2)
 then
-	sudo adduser "$USER" davfs2 \
-	&& newgrp davfs2
+	sudo adduser "$USER" davfs2
+	# not && because non-zero expected for adduser command
+	newgrp davfs2
 fi \
 && if [[ -z "$BASH_IT" ]]
 then
