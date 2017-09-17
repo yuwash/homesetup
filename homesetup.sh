@@ -25,7 +25,10 @@ then
 fi \
 && vim "$HOME/.bashrc" +'%s/BASH_IT_THEME.*$'"/BASH_IT_THEME='densecandy'/" \
 && source "$HOME/.bashrc" \
-&& ( bash-it enable plugin davencmount  # returns 0 even if already enabled
+&& ( bash-it enable plugin \
+	davencmount \
+	histsync \
+	# returns 0 even if already enabled
 ) \
 && if ! [[ -d /media/$USER ]]
 then
