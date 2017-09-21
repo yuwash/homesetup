@@ -1,0 +1,11 @@
+pandoc
+texlive-latex-extra
+texlive-lang-german
+pdfgrep
+poppler-utils
+python-pygraphviz
+make
+gcc
+virtualenv
+python-pip
+haveged

@@ -3,6 +3,7 @@ git
 davfs2
 curlftpfs
 encfs
+sshfs
 vim
 tmux
 ranger
