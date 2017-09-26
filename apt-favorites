@@ -4,6 +4,7 @@ davfs2
 curlftpfs
 encfs
 sshfs
+python-pip
 vim
 tmux
 ranger
