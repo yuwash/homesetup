@@ -34,14 +34,16 @@ then sudo pacman -Sy --needed `cat \
 	`
 fi
 fi \
-&& if ! (groups | grep -q davfs2)
+&& for g in davfs2 network docker
+do if ! (groups | grep -q $g)
 then
-	( grep -q ^davfs2 /etc/group \
-		|| sudo groupadd davfs2 ) \
-	&& sudo usermod -aG davfs2 "$USER" \
-	&& ( newgrp davfs2; true )
+	( grep -q ^$g /etc/group \
+		|| sudo groupadd $g ) \
+	&& sudo usermod -aG $g "$USER" \
+	&& ( newgrp $g; true )
 	# non-zero expected for newgrp command
-fi \
+fi || exit $?
+done \
 && sudo -H pip install -U pip \
 && pip install --user `cat \
 	pip-favorites \
