@@ -1,23 +1,46 @@
 #! /usr/bin/env bash
-( grep -q colemak /etc/default/keyboard \
-	|| sudo vim /etc/default/keyboard \
-		+'%s/^XKBLAYOUT.*$/XKBLAYOUT="us"' \
-		+'%s/^XKBVARIANT.*$/XKBVARIANT="colemak"' \
-		+'%s/^XKBOPTIONS.*$/XKBOPTIONS="grp:caps_toggle,grp_led:scroll"' \
+set -ex
+for g in $USER user
+do grep -q ^$g /etc/groups \
+	&& MYGRP=$g \
+	&& break
+done
+for f in \
+	/etc/default/keyboard \
+	/etc/X11/xorg.conf.d/00-keyboard.conf
+do [[ -f "$f" ]] \
+	&& KEYCONF_FILE="$f" \
+	&& break
+done \
+&& ( grep -q colemak "$KEYCONF_FILE" \
+	|| sudo vim "$KEYCONF_FILE" \
+		+'%s/^\c\(XKBLAYOUT\).*$/\1="us"' \
+		+'%s/^\c\(XKBVARIANT\).*$/\1="colemak"' \
+		+'%s/^\c\(XKBOPTIONS\).*$/\1="grp:caps_toggle,grp_led:scroll"' \
 ) \
 && udevadm trigger --subsystem-match=input --action=change \
-&& sudo apt-get update \
+&& if type apt-get > /dev/null
+then sudo apt-get update \
 && sudo apt-get install `cat \
 	apt-favorites \
 	# items below ignored \
 	apt-work \
 	apt-extras \
-	` \
+	`
+else if type pacman > /dev/null
+then sudo pacman -Sy --needed `cat \
+	pacman-favorites \
+	# items below ignored \
+	`
+fi
+fi \
 && if ! (groups | grep -q davfs2)
 then
-	sudo adduser "$USER" davfs2
-	# not && because non-zero expected for adduser command
-	newgrp davfs2
+	( grep -q ^davfs2 /etc/group \
+		|| sudo groupadd davfs2 ) \
+	&& sudo usermod -aG davfs2 "$USER" \
+	&& ( newgrp davfs2; true )
+	# non-zero expected for newgrp command
 fi \
 && sudo -H pip install -U pip \
 && pip install --user `cat \
@@ -26,9 +49,9 @@ fi \
 	` \
 && if ! [[ -d /media/$USER ]]
 then
-	sudo mkdir /media/$USER \
+	sudo mkdir -p /media/$USER \
 	&& sudo chown -R "$USER" /media/$USER \
-	&& sudo chgrp -R "$USER" /media/$USER
+	&& sudo chgrp -R "$MYGRP" /media/$USER
 fi \
 && mkdir -p /media/$USER/davfs \
 && while read entry
