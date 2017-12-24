@@ -1,1 +1,4 @@
-{"zotero-standalone": {"ppa": "smathot/cogscinl"}}
+{
+"zotero-standalone": {"ppa": "smathot/cogscinl"},
+"nextcloud-client": {"ppa": "nextcloud-devs/client"}
+}
