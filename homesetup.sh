@@ -47,11 +47,15 @@ then
 	# non-zero expected for newgrp command
 fi || exit $?
 done \
-&& sudo -H pip install -U pip \
-&& pip install --user `cat \
+&& readarray PIP_PACKAGES < <(cat \
 	pip-favorites \
 	# items below ignored \
-	` \
+) \
+&& if [[ -n "${PIP_PACKAGES[@]}" ]]
+then
+	sudo -H pip install -U pip \
+	&& pip install --user "${PIP_PACKAGES[@]}"
+fi \
 && if ! [[ -d /media/$USER ]]
 then
 	sudo mkdir -p /media/$USER \
