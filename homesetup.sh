@@ -4,21 +4,24 @@ for g in $USER user
 do grep -q $g <(groups) \
 	&& MYGRP=$g \
 	&& break
-done
-for f in \
-	/etc/default/keyboard \
-	/etc/X11/xorg.conf.d/00-keyboard.conf
-do [[ -f "$f" ]] \
-	&& KEYCONF_FILE="$f" \
-	&& break
 done \
-&& ( grep -q colemak "$KEYCONF_FILE" \
-	|| sudo vim "$KEYCONF_FILE" \
-		+'%s/^\c\(XKBLAYOUT\).*$/\1="us"' \
-		+'%s/^\c\(XKBVARIANT\).*$/\1="colemak"' \
-		+'%s/^\c\(XKBOPTIONS\).*$/\1="grp:caps_toggle,grp_led:scroll"' \
-) \
-&& udevadm trigger --subsystem-match=input --action=change \
+&& if for f in \
+		/etc/default/keyboard \
+		/etc/X11/xorg.conf.d/00-keyboard.conf
+	do [[ -f "$f" ]] \
+		&& KEYCONF_FILE="$f" \
+		&& break
+	done
+then
+	( grep -q colemak "$KEYCONF_FILE" \
+		|| sudo vim "$KEYCONF_FILE" \
+			+'%s/^\c\(XKBLAYOUT\).*$/\1="us"' \
+			+'%s/^\c\(XKBVARIANT\).*$/\1="colemak"' \
+			+'%s/^\c\(XKBOPTIONS\).*$/\1="grp:caps_toggle,grp_led:scroll"' \
+	) \
+	&& udevadm trigger --subsystem-match=input --action=change
+else echo Keyboard configuration file not found, skipped.
+fi \
 && if type apt-get > /dev/null
 then sudo apt-get update \
 && sudo apt-get install `cat \
