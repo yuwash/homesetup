@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 set -ex
 for g in $USER user
-do grep -q ^$g /etc/groups \
+do grep -q $g <(groups) \
 	&& MYGRP=$g \
 	&& break
 done
