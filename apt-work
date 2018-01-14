@@ -9,3 +9,5 @@ gcc
 virtualenv
 python-pip
 haveged
+npm
+nodejs-legacy

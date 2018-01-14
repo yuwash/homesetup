@@ -9,4 +9,5 @@ vim
 tmux
 ranger
 elinks
+command-not-found
 wipe
