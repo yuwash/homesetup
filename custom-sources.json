@@ -1,6 +1,7 @@
 {
 "zotero-standalone": {"ppa": "smathot/cogscinl"},
 "nextcloud-client": {"ppa": "nextcloud-devs/client"},
+"mkusb": {"ppa": "mkusb/ppa"},
 "yarn": {
   "pubkey": {"url": "https://dl.yarnpkg.com/debian/pubkey.gpg"},
   "repository": "deb https://dl.yarnpkg.com/debian/ stable main"
