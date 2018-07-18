@@ -96,4 +96,4 @@ then
 	&& "$BASH_IT"/install.sh
 fi \
 && vim "$HOME/.bashrc" +'%s/BASH_IT_THEME.*$'"/BASH_IT_THEME='densecandy'/" \
-&& echo Please source '"$HOME/.bashrc"' and run ./after-bashit.sh
+&& bash --login after-bashit.sh

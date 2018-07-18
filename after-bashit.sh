@@ -5,4 +5,4 @@ set -ex \
 	histsync \
 	# returns 0 even if already enabled
 ) \
-&& echo please '`reload`' and run ./after-davencmount.sh
+&& echo please '`reload`, `newgrp davfs2`' and run ./after-davencmount.sh
