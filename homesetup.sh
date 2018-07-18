@@ -42,9 +42,7 @@ do if ! (groups | grep -q $g)
 then
 	( grep -q ^$g /etc/group \
 		|| sudo groupadd $g ) \
-	&& sudo usermod -aG $g "$USER" \
-	&& ( newgrp $g; true )
-	# non-zero expected for newgrp command
+	&& sudo usermod -aG $g "$USER"
 fi || exit $?
 done \
 && readarray PIP_PACKAGES < <(cat \
