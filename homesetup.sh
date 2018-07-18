@@ -85,7 +85,9 @@ then
 	mkdir -p "$HOME/.vim/bundle" \
 	&& git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim" \
 	&& vim ~/.vim/vimrc +'r ~/.vim/bundle/Vundle.vim/README.md' +'normal! gg/^\s*```vim$"_dgg/^\s*```$"_dGgg<Ggg/^\n\s*" All of your Pluginsk"_dapOk:r vundle-favoritesG:r vimrc-append' +'wq' \
-	&& vim +PluginInstall +only
+	&& view - <<< 'Please run
+:VundleInstall
+:set spell'
 fi \
 && if [[ -z "$BASH_IT" ]]
 then
