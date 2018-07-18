@@ -54,12 +54,9 @@ then
 	sudo -H pip install -U pip \
 	&& pip install --user "${PIP_PACKAGES[@]}"
 fi \
-&& if ! [[ -d /media/$USER ]]
-then
-	sudo mkdir -p /media/$USER \
-	&& sudo chown -R "$USER" /media/$USER \
-	&& sudo chgrp -R "$MYGRP" /media/$USER
-fi \
+&& sudo mkdir -p /media/$USER \
+&& sudo chown "$USER" /media/$USER \
+&& sudo chgrp "$MYGRP" /media/$USER \
 && mkdir -p /media/$USER/davfs \
 && while read entry
 do
