@@ -6,8 +6,8 @@
     <property name="eDP-1" type="string" value="Laptop">
       <property name="Active" type="bool" value="true"/>
       <property name="EDID" type="string" value="9bb7b425779341fc8de743a5bff5af4166c42c1d"/>
-      <property name="Resolution" type="string" value="1280x720"/>
-      <property name="RefreshRate" type="double" value="60.002436647173489"/>
+      <property name="Resolution" type="string" value="1600x900"/>
+      <property name="RefreshRate" type="double" value="60.002699784017281"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
       <property name="Primary" type="bool" value="true"/>
@@ -25,8 +25,8 @@
     <property name="eDP-1" type="string" value="Laptop">
       <property name="Active" type="bool" value="true"/>
       <property name="EDID" type="string" value="9bb7b425779341fc8de743a5bff5af4166c42c1d"/>
-      <property name="Resolution" type="string" value="1280x720"/>
-      <property name="RefreshRate" type="double" value="60.002436647173489"/>
+      <property name="Resolution" type="string" value="1600x900"/>
+      <property name="RefreshRate" type="double" value="60.002699784017281"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
       <property name="Primary" type="bool" value="true"/>
