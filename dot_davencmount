@@ -1,0 +1,10 @@
+c /media/yuwash/davfs/cloudme-yuwash
+h /media/yuwash/davfs/hidrive-yuwash
+p /media/yuwash/davfs/hidrive-yuwash
+p encfs /media/yuwash/davfs/hidrive-yuwash/users/yuwash/brillas.encfs /home/yuwash/brillas
+y /media/yuwash/davfs/yandex.disk-yuwash
+m /media/yuwash/davfs/owndrive-mworesil
+o /media/yuwash/davfs/owndrive-yuwash
+s /media/yuwash/davfs/sciebo-794KSQ
+t /media/yuwash/davfs/tvkloud-yushin1309
+ic /media/yuwash/davfs/ili-ref_94720-Rechnernetze

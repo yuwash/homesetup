@@ -1,0 +1,47 @@
+Host fh-git
+  HostName git.noc.fh-aachen.de
+  User git
+  IdentityFile ~/.ssh/ywashioeonerc_id_rsa
+  PreferredAuthentications publickey
+  RSAAuthentication yes
+
+Host ywashiorwthgit
+  HostName git.rwth-aachen.de
+  User git
+  IdentityFile ~/.ssh/ywashioeonerc_id_rsa
+  IdentitiesOnly yes
+  # alternative:
+  # User yushin.washio
+
+Host rwth-cluster
+  Hostname cluster.rz.rwth-aachen.de
+  User yw935658
+
+Host rwth-cluster-linux
+  Hostname cluster-linux.rz.rwth-aachen.de
+  User yw935658
+
+Host ovh
+  HostName vps374659.ovh.net
+  User yuwash
+
+Host tvk-waschdev
+  Hostname 137.226.142.35
+  User waschbaer
+
+Host tvk-waschag
+  Hostname waschag.tvk.rwth-aachen.de
+  User root
+  IdentityFile ~/.ssh/ywrwth_id_rsa
+
+Host tvk-waschbaer
+  Hostname waschbaer.tvk.rwth-aachen.de
+  User root
+  IdentityFile ~/.ssh/ywrwth_id_rsa
+
+Host tvk-c-tools-kasse
+  Hostname c-tools.tvk.rwth-aachen.de
+  Port 420
+  User kasse
+  IdentityFile ~/.ssh/ywrwth_id_rsa
+  IdentitiesOnly yes
