@@ -1,3 +1,15 @@
+Host github.com
+  Host github.com
+  User git
+  RSAAuthentication yes
+  IdentityFile ~/.ssh/yuwash_posteo_id_rsa
+
+Host bitbucket.com
+  Host bitbucket.com
+  User git
+  RSAAuthentication yes
+  IdentityFile ~/.ssh/yuwash_posteo_id_rsa
+
 Host fh-git
   HostName git.noc.fh-aachen.de
   User git
@@ -15,10 +27,6 @@ Host ywashiorwthgit
 
 Host rwth-cluster
   Hostname cluster.rz.rwth-aachen.de
-  User yw935658
-
-Host rwth-cluster-linux
-  Hostname cluster-linux.rz.rwth-aachen.de
   User yw935658
 
 Host ovh
@@ -44,4 +52,24 @@ Host tvk-c-tools-kasse
   Port 420
   User kasse
   IdentityFile ~/.ssh/ywrwth_id_rsa
+  IdentitiesOnly yes
+
+Host yushintvkgit
+  Hostname c-tools.tvk.rwth-aachen.de
+  # Port 8080
+  Port 420
+  User git
+  IdentityFile ~/.ssh/ywrwth_id_rsa
+  IdentitiesOnly yes
+  # alternative:
+  # User Yushin
+
+Host hetzner-ubuntu-2gb-fsn1-1
+  Hostname 138.201.191.144
+  User yuwash
+
+Host hetzner-ubuntu-2gb-fsn1-1-root
+  Hostname 138.201.191.144
+  User root
+  IdentityFile ~/.ssh/yuwash_id_rsa
   IdentitiesOnly yes
