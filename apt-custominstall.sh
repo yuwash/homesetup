@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 set -ex \
-&& while read package
+&& for package in "$@"
 do package_data="$(jq ".[\"$package\"]" < custom-sources.json)"
 	if [[ "true" == "$(echo $package_data | jq '. | has("ppa")')" ]]; then
 		PPA=`echo $package_data | jq --raw-output '.ppa'` \
@@ -13,9 +13,6 @@ do package_data="$(jq ".[\"$package\"]" < custom-sources.json)"
 		fi \
 		&& sudo add-apt-repository "$(echo $package_data | jq --raw-output '.repository')"
 	fi
-done < apt-custom \
+done \
 && sudo apt-get update \
-&& sudo apt-get install `cat \
-	apt-custom \
-	# items below ignored \
-	`
+&& sudo apt-get install "$@"
