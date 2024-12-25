@@ -1,0 +1,6 @@
+[ ".bash_it" ]
+    type = "git-repo"
+    url = "https://github.com/Bash-it/bash-it.git"
+    exact = true
+    stripComponents = 1
+    clone.args = ["--depth=1"]
