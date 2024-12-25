@@ -1,7 +1,12 @@
 {
+"boot-repair": {"ppa": "yannubuntu/boot-repair"},
 "zotero-standalone": {"ppa": "smathot/cogscinl"},
 "nextcloud-client": {"ppa": "nextcloud-devs/client"},
 "mkusb": {"ppa": "mkusb/ppa"},
+"windsurf": {
+  "pubkey": {"url": "https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg"},
+  "repository": "deb https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/apt stable main"
+},
 "yarn": {
   "pubkey": {"url": "https://dl.yarnpkg.com/debian/pubkey.gpg"},
   "repository": "deb https://dl.yarnpkg.com/debian/ stable main"
