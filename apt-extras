@@ -3,11 +3,11 @@ psutils
 pdftk
 pdfgrep
 tesseract-ocr-deu
-octave-info
+octave-doc
 freesweep
 testdisk
 network-manager-vpnc
-libav-tools
+ffmpeg
 sox
 guvcview
 gmrun
@@ -20,10 +20,8 @@ pass
 nodejs
 npm
 gdb
-gvfs-bin
-gpointing-device-settings
+gvfs-fuse
 mysql-server
-mysql-workbench
 docker.io
 debfoster
 deborphan

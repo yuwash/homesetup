@@ -25,8 +25,9 @@ fi \
 && if type apt-get > /dev/null
 then sudo apt-get update \
 && sudo apt-get install `cat \
-	apt-favorites \
+	apt-essentials \
 	# items below ignored \
+	apt-favorites \
 	apt-work \
 	apt-extras \
 	`
