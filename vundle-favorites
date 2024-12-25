@@ -14,3 +14,12 @@ Plugin 'vim-scripts/matchit.zip'
 Plugin 'rhysd/conflict-marker.vim'
 " :cherry_blossom: A command-line fuzzy finder written in Go
 Plugin 'junegunn/fzf'
+" A Vim plugin which shows a git diff in the gutter (sign column) and
+" stages/undoes hunks.
+Plugin 'airblade/vim-gitgutter'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+" Automatically discover and "properly" update ctags files on save
+Plugin 'craigemery/vim-autotag'
