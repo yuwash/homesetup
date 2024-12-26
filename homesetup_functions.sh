@@ -10,9 +10,9 @@ configure_keyboard() {
     if [[ -n "$keyconf_file" ]]; then
         grep -q colemak "$keyconf_file" \
             || sudo vi "$keyconf_file" \
-            +'s/^\c\(XKBLAYOUT\).*$/\1="us"/' \
-            +'s/^\c\(XKBVARIANT\).*$/\1="colemak"/' \
-            +'s/^\c\(XKBOPTIONS\).*$/\1="grp:caps_toggle,grp_led:scroll"/'
+            +'s/^\c\(XKBLAYOUT\).*$/\1="us,us"/' \
+            +'s/^\c\(XKBVARIANT\).*$/\1="colemak,altgr-intl"/' \
+            +'s/^\c\(XKBOPTIONS\).*$/\1="grp:win_space_toggle"/'
         udevadm trigger --subsystem-match=input --action=change
     else
         echo "Keyboard configuration file not found, skipped."
