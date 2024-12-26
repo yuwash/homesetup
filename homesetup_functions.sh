@@ -10,10 +10,10 @@ configure_keyboard() {
     if [[ -n "$keyconf_file" ]]; then
         grep -q colemak "$keyconf_file" \
             || sudo vi "$keyconf_file" \
-            +'s/^\c\(XKBLAYOUT\).*$/\1="us,us"/' \
-            +'s/^\c\(XKBVARIANT\).*$/\1="colemak,altgr-intl"/' \
-            +'s/^\c\(XKBOPTIONS\).*$/\1="grp:win_space_toggle"/'
-        udevadm trigger --subsystem-match=input --action=change
+            +'s/^\(\s*XKBLAYOUT\).*$/\1="us,us"/' \
+            +'s/^\(\s*XKBVARIANT\).*$/\1="colemak,altgr-intl"/' \
+            +'s/^\(\s*XKBOPTIONS\).*$/\1="grp:win_space_toggle"/'
+        sudo udevadm trigger --subsystem-match=input --action=change
     else
         echo "Keyboard configuration file not found, skipped."
     fi
