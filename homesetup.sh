@@ -17,10 +17,15 @@ setup_directories_and_fstab
 install_bash_it
 update_bashrc
 
+# Enable bash-it
+source "$HOME"/.bashrc
+source "$BASH_IT"/bash_it.sh
+
+enable_bash_it_plugins
+
 # Extras:
 # install_python_packages
 # setup_vundle
 # setup_tmux
 
-# Finally, run after-bashit.sh
-bash --login after-bashit.sh
+echo please '`reload`, `newgrp davfs2`' and run ./after-davencmount.sh

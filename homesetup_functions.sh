@@ -107,10 +107,19 @@ install_bash_it() {
     if [[ -z "$BASH_IT" ]]; then
         BASH_IT="$HOME/.bash_it"
         git clone https://github.com/yuwash/bash-it.git "$BASH_IT"
-        "$BASH_IT"/install.sh
+    fi &&
+    if ! type bash-it
+    then "$BASH_IT"/install.sh
     fi
 }
 
 update_bashrc() {
     vim "$HOME/.bashrc" +'%s/BASH_IT_THEME.*$'"/BASH_IT_THEME='densecandy'/"
+}
+
+enable_bash_it_plugins() {
+  bash-it enable plugin \
+    davencmount \
+    histsync \
+    # returns 0 even if already enabled
 }
