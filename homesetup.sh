@@ -29,4 +29,4 @@ enable_bash_it_plugins
 # setup_spacevim
 # setup_tmux
 
-echo please '`reload`, `newgrp davfs2`' and run ./after-davencmount.sh
+echo please '`reload`, `newgrp davfs2` (may need `sudo gpasswd -r davfs2`)' and run ./after-davencmount.sh
