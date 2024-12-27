@@ -95,12 +95,28 @@ setup_vundle() {
 "_dgg/^\s*```$
 "_dGgg<Ggg/^\n\s*" All of your Plugins
 k"_dapOk:r vundle-favorites
-G:r vimrc-append
+Go:r vimrc-append
+:r vimrc-append-airline
 ' +'wq' \
 	&& view - +'new' <<< 'Please run
 :VundleInstall
 :set spell'
     fi
+}
+
+
+setup_spacevim() {
+    NEOVIM_INIT="$HOME/.vim/init.vim"
+    SPACEVIM_INIT="$HOME/.SpaceVim.d/init.toml"
+    if ! [[ -d "$HOME/.SpaceVim" ]]
+    then ./spaceviminstall.sh
+    fi &&
+    if ! grep -q '" Added by homesetup' "$NEOVIM_INIT"
+    then tee -a "$NEOVIM_INIT" < vimrc-append
+    fi &&
+    if ! grep -q '# Added by homesetup' "$SPACEVIM_INIT"
+    then echo | cat - spacevim-favorites | tee -a "$SPACEVIM_INIT"
+    fi  # Add a leading blank line with `echo`
 }
 
 install_bash_it() {

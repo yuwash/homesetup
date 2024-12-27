@@ -1,18 +1,6 @@
-if !has('gui_running')
-  set t_Co=256
-endif
+" Added by homesetup
 
 set incsearch
 
-colorscheme koehler
-"color summerfruit256
-
 set colorcolumn=72,79
 set spell spelllang=en_us,de_de
-
-" airline configuration
-set laststatus=2
-let g:airline_theme = 'base16_default'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif

@@ -1,0 +1,5 @@
+# Added by homesetup
+
+[[custom_plugins]]
+    # Free, ultrafast Copilot alternative for Vim and Neovim 
+    repo = "Exafunction/codeium.vim"

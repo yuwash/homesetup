@@ -26,6 +26,7 @@ enable_bash_it_plugins
 # Extras:
 # install_python_packages
 # setup_vundle
+# setup_spacevim
 # setup_tmux
 
 echo please '`reload`, `newgrp davfs2`' and run ./after-davencmount.sh
