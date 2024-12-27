@@ -1,13 +1,11 @@
 Host github.com
   Host github.com
   User git
-  RSAAuthentication yes
   IdentityFile ~/.ssh/yuwash_posteo_id_rsa
 
 Host bitbucket.com
   Host bitbucket.com
   User git
-  RSAAuthentication yes
   IdentityFile ~/.ssh/yuwash_posteo_id_rsa
 
 Host fh-git
@@ -15,7 +13,6 @@ Host fh-git
   User git
   IdentityFile ~/.ssh/ywashioeonerc_id_rsa
   PreferredAuthentications publickey
-  RSAAuthentication yes
 
 Host ywashiorwthgit
   HostName git.rwth-aachen.de
