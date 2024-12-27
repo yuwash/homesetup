@@ -1,5 +1,5 @@
 cite 'about-plugin'
-about-plugin 'mount davfs2 and encfs as configured in ~/.davencmount'
+about-plugin 'mount davfs2 and encfs or gocryptfs as configured in ~/.davencmount'
 
 DAVENCMOUNT_FILE="$HOME/.davencmount"
 
@@ -141,10 +141,12 @@ function davencmount () {
 			if [[ -z "${earr[1]}" ]]
 			then echo error at $entry; return 1
 			fi
-			if [[ "${earr[1]}" = encfs ]]
+			if [[ "${earr[1]}" = encfs ]] || [[ "${earr[1]}" = gocryptfs ]]
 			then _mounted "${earr[-1]}" || {
 				_try_mount_or_mkdir \
-					encfs ${earr[@]:2} < /dev/tty
+					${earr[@]:1} < /dev/tty
+        # This works because the first word (encfs, gocryptfs) is the
+        # command and the second one (path) its argument.
 			}
 			else if [[ "${earr[1]}" = sshfs ]]
 			then _mounted "${earr[-1]}" || {
@@ -165,7 +167,7 @@ function davencmount () {
 			if [[ -z "${earr[1]}" ]]
 			then echo error at $entry; return 1
 			fi
-			if [[ "${earr[1]}" = encfs ]] || [[ "${earr[1]}" = sshfs ]]
+			if [[ "${earr[1]}" = encfs ]] || [[ "${earr[1]}" = gocryptfs ]] || [[ "${earr[1]}" = sshfs ]]
 			then _mounted "${earr[-1]}" && { fusermount -u "${earr[-1]}" < /dev/tty; }
 			else _mounted "${earr[-1]}" && { fusermount -u "${earr[-1]}" < /dev/tty; }
 			fi || echo skipping unmounting possibly failed $target ${earr[-1]}
