@@ -1,0 +1,5 @@
+c /media/yuwash/davfs/cloudme-yuwash
+p encfs /media/yuwash/davfs/webo-yuwash/users/yuwash/brillas.encfs /home/yuwash/brillas
+y /media/yuwash/davfs/yandex.disk-yuwash
+m /media/yuwash/davfs/owndrive-mworesil
+o /media/yuwash/davfs/owndrive-yuwash
