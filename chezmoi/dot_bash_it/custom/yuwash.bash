@@ -17,3 +17,7 @@ foke () {
 foker () {
 	OUT="`foke "$1"`" && "./$OUT"
 }
+
+viewdiff () {
+	git diff "$@" | view -
+}
