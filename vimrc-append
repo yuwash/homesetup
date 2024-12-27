@@ -3,4 +3,3 @@
 set incsearch
 
 set colorcolumn=72,79
-set spell spelllang=en_us,de_de
