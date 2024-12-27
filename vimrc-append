@@ -3,3 +3,5 @@
 set incsearch
 
 set colorcolumn=72,79
+
+imap <script><silent><nowait><expr> <C-g> codeium#Accept()
