@@ -120,11 +120,14 @@ setup_spacevim() {
 }
 
 install_bash_it() {
-    if [[ -z "$BASH_IT" ]]; then
-        BASH_IT="$HOME/.bash_it"
-        git clone https://github.com/yuwash/bash-it.git "$BASH_IT"
+    if [[ -z "$BASH_IT" ]]
+    then BASH_IT="$HOME/.bash_it"
+    fi
+    if ! [[ -d "$BASH_IT" ]]
+    then git clone https://github.com/yuwash/bash-it.git "$BASH_IT"
     fi &&
-    if ! type bash-it
+    if ! grep -q 'bash_it.sh' "$HOME/.bashrc"
+    # type bash-it won’t work because that’s only available in interactive shells.
     then "$BASH_IT"/install.sh
     fi
 }
